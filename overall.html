@@ -1,0 +1,577 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Webslesson Tutorial | Search HTML Table Data by using JQuery</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+  <style>
+    .current {
+      background-color: black;
+    }
+
+    select {
+      border-radius: 2px;
+    }
+
+    .button-container {
+      margin: 20px 20px;
+    }
+
+    .bt-graph {
+      display: inline-flex;
+      margin: 20px 20px
+    }
+
+    .sectiongraph {
+      padding-top: 5%;
+      align-items: center;
+      text-align: center;
+    }
+
+    #result {
+      position: absolute;
+      width: 100%;
+      max-width: 870px;
+      cursor: pointer;
+      overflow-y: auto;
+      max-height: 400px;
+      box-sizing: border-box;
+      z-index: 1001;
+    }
+
+    .link-class:hover {
+      background-color: #f1f1f1;
+    }
+
+    table,
+    tr,
+    td,
+    th {
+      border: 1px solid blue;
+      padding: 2px;
+      width: 100%;
+    }
+
+    table th {
+      background-color: #999999;
+    }
+
+    .current {
+      background-color: #ff3333;
+      color: white;
+      border-color: black;
+    }
+
+    .current2 {
+      background-color: #66ccff;
+      color: white;
+      border-color: black;
+    }
+
+    .button-container {
+      margin: 20px 20px;
+    }
+
+    .section {
+      padding-top: 5%;
+      align-items: center;
+      text-align: center;
+      height: 1000px;
+      overflow-y: hidden;
+    }
+
+    .section1 {
+      padding-top: 5%;
+      align-items: center;
+      text-align: center;
+      height: auto;
+      overflow-y: hidden;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    #search {
+      background-image: url('/css/searchicon.png');
+      background-position: 10px 10px;
+      background-repeat: no-repeat;
+      border-radius: 10px;
+      width: 40%;
+      font-size: 16px;
+      padding: 12px 20px 12px 40px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;
+    }
+
+    #searcher {
+      background-image: url('/css/searchicon.png');
+      background-position: 10px 10px;
+      background-repeat: no-repeat;
+      border-radius: 10px;
+      width: 40%;
+      font-size: 16px;
+      padding: 12px 20px 12px 40px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;
+    }
+
+
+    #dvCSV {
+      border-collapse: collapse;
+      width: 100%;
+      border: 1px solid #ddd;
+      font-size: 10px;
+      display: none;
+    }
+
+    #dvCSVF {
+      border-collapse: collapse;
+      width: 100%;
+      border: 1px solid #ddd;
+      font-size: 10px;
+    }
+
+    #dvCSV th,
+    #dvCSV td {
+      text-align: center;
+      padding: 12px;
+      height: auto;
+      width: auto;
+      border: 1px solid #ddd;
+    }
+
+    #dvCSVF th,
+    #dvCSVF td {
+      text-align: center;
+      padding: 12px;
+      height: auto;
+      width: auto;
+      border: 1px solid #ddd;
+    }
+
+    #dvCSV th {
+      background-color: #f1f1f1;
+    }
+
+    #dvCSV tr {
+      border-bottom: 1px solid #ddd;
+    }
+
+    #dvCSVF tr.header,
+    #dvCSVF tr:hover {
+      background-color: #f1f1f1;
+      transition: 0.9s;
+    }
+
+    #dvCSVF th {
+      background-color: #f1f1f1;
+    }
+
+    #dvCSVF tr {
+      border-bottom: 1px solid #ddd;
+    }
+
+    #dvCSVF tr.header,
+    #dvCSVF tr:hover {
+      background-color: #f1f1f1;
+      transition: 0.9s;
+    }
+  </style>
+</head>
+
+<script>
+
+
+  // Loading Placeholder (Showcase) Graphs
+
+  $(window).load(function() {})
+
+  $(document).ready(function() {
+
+    var dataPoints1 = [];
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+      animationEnabled: true,
+      theme: "light2",
+      zoomEnabled: true,
+      panEnabled: true,
+      title: {
+        text: ""
+      },
+      axisY: {
+        titleFontSize: 24
+      },
+      axisX: {
+        title: "Countries",
+        titleFontSize: 24,
+        labelAngle: 45,
+      },
+      data: [{
+        type: "column",
+        yValueFormatString: "#.### Units",
+        // xValueFormatString: "string",
+        dataPoints: dataPoints1
+      }]
+    });
+
+    var selecteddata;
+    var counter;
+
+    // Change Y axis on Graph to another one
+
+    //  Chart render On Command
+
+    $(".databtn").click(function() {
+      $(".databtn").removeClass("current");
+      $(this).addClass("current");
+      if ($(this).is('#' + 'WorldHappyReport')) {
+        selecteddata = '2015worldhappy.json';
+        $(".HappyCountry").show();
+        $(".Wine").hide();
+        $(".UFO").hide();
+        $(".Card").hide();
+        counter = 1;
+        console.log(counter);
+        $('input:text').attr('placeholder','Search Country');
+      } else if ($(this).is('#' + 'CreditCardFraud')) {
+        selecteddata = 'CrediCard.json';
+        $(".HappyCountry").hide();
+        $(".Card").show();
+        $(".UFO").hide();
+        $(".Wine").hide();
+        console.log("Fraud");
+        counter = 2;
+        console.log(counter);
+      $('input:text').attr('placeholder','Search Time (Seconds)');
+      } else if ($(this).is('#' + 'WineReviews')) {
+        selecteddata = 'winedatafinal.json';
+        $(".HappyCountry").hide();
+        $(".Card").hide();
+        $(".UFO").hide();
+        $(".Wine").show();
+        console.log("Wine");
+        counter = 3;
+        console.log(counter);
+        $('input:text').attr('placeholder','Search Wine');
+      } else if ($(this).is('#' + 'UFOSightings')) {
+        selecteddata = 'ufosight.json';
+        $(".HappyCountry").hide();
+        $(".Card").hide();
+        $(".Wine").hide();
+        $(".UFO").show();
+        console.log("UFO");
+        counter = 4;
+        console.log(counter);
+        $('input:text').attr('placeholder','Date / Time');
+
+      } else {
+
+      }
+    });
+
+
+    // Rendering the Chart
+
+    $(".dropdown").change(function() {
+      chart.options.data[0].dataPoints = [];
+      var dropvalue = $(this).val()
+      console.log($(this).val());
+      if (counter = 1) {
+        chart.options.data[0].dataPoints = [];
+        var e = document.getElementById("dd");
+        var selected = e.options[e.selectedIndex].value;
+        $.getJSON(selecteddata, function(data) {
+          for (var i = 0; i < data.length; i++) {
+            chart.options.data[0].dataPoints.push({
+              label: data[i].Country,
+              y: data[i][selected]
+            });
+          }
+          chart.render();
+        });
+
+      } else if (counter = 2) {
+        console.log("FAG");
+        chart.options.data[0].dataPoints = [];
+        var e = document.getElementById("dd");
+        var selected = e.options[e.selectedIndex].value;
+        $.getJSON(selecteddata, function(data) {
+          for (var i = 0; i < data.length; i++) {
+            chart.options.data[0].dataPoints.push({
+              label: data[i].Time,
+              y: data[i][selected]
+            });
+          }
+          chart.render();
+        });
+      } else if (counter = 3) {
+        console.log("FAG");
+        chart.options.data[0].dataPoints = [];
+        var e = document.getElementById("dd");
+        var selected = e.options[e.selectedIndex].value;
+        $.getJSON(selecteddata, function(data) {
+          for (var i = 0; i < data.length; i++) {
+            chart.options.data[0].dataPoints.push({
+              label: data[i].cunt,
+              y: data[i][selected]
+            });
+          }
+          chart.render();
+        });
+      } else if (counter = 4) {
+        console.log("FAG");
+        chart.options.data[0].dataPoints = [];
+        var e = document.getElementById("dd");
+        var selected = e.options[e.selectedIndex].value;
+        $.getJSON(selecteddata, function(data) {
+          for (var i = 0; i < data.length; i++) {
+            chart.options.data[0].dataPoints.push({
+              label: new Date(data[i].datetime),
+              y: data[i][selected]
+            });
+          }
+          chart.render();
+        });
+      } else {
+
+      }
+      counter = 5
+      console.log(counter)
+      var chartType = document.getElementById('chartType');
+      chartType.addEventListener("change", function() {
+        chart.options.data[0].type = chartType.options[chartType.selectedIndex].value;
+        chart.render();
+      });
+    });
+
+
+  // Change Chart Type to another one
+
+  // Print Chart By Command
+
+  document.getElementById("printChart").addEventListener("", function() {
+    chart.print();
+  });
+
+  // Export Chart as a file By Command
+
+  document.getElementById("exportChart").addEventListener("click", function() {
+    chart.exportChart({
+      format: "jpg"
+    });
+
+  });
+
+
+  $(".databtn").click(function() {
+    $.getJSON(selecteddata, function(object) {
+      var obj = object;
+      var table = $("<table />");
+      table[0].border = "1";
+      var columns = Object.keys(obj[0]);
+      var columnCount = columns.length;
+      var row = $(table[0].insertRow(-1));
+      for (var i = 0; i < columnCount; i++) {
+        var headerCell = $("<th />");
+        headerCell.html([columns[i]]);
+        row.append(headerCell);
+      }
+
+      for (var i = 0; i < obj.length; i++) {
+        row = $(table[0].insertRow(-1));
+        for (var j = 0; j < columnCount; j++) {
+          var cell = $("<td />");
+          cell.html(obj[i][columns[j]]);
+          row.append(cell);
+        }
+      };
+
+      var dvTable = $("#dvCSV");
+      var dvTable2 = $("#dvCSVF");
+      dvTable2.html("");
+      dvTable.html("");
+      dvTable.append(table);
+      dvTable2.append(table);
+
+    });
+  });
+
+  // HTML table search Input Script
+
+  $("#search").keyup(function() {
+    var value = $(this).val();
+    var input, filter, table, tr, td, i;
+    filter1 = value.toUpperCase();
+    table = document.getElementsByTagName("table");
+    tr = document.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+    if ($('#search:text').val().length === 0) {
+      $("#dvCSV").hide();
+    } else {
+      $("#dvCSV").show();
+    }
+  });
+
+  $("#searcher").keyup(function() {
+    var value = $(this).val();
+    var input, filter, table, tr, td, i;
+    filter = value.toUpperCase();
+    table = document.getElementsByTagName("table");
+    tr = document.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  });
+
+
+  $("#ViewAllData").click(function() {
+    if ($(this).hasClass("current2")) {
+      $(this).removeClass("current2");
+    } else {
+      $(this).addClass("current2");
+    };
+    if ($("#TableSection").hasClass("section1")) {
+      $("#TableSection").removeClass("section1");
+    } else {
+      $("#TableSection").addClass("section1");
+    };
+  });
+
+  });
+
+</script>
+
+
+<body>
+
+  <div class="sectiongraph">
+
+    <div id="Heading">
+      <h2 class=""> Graphs </h2>
+    </div>
+
+    <!-- Selecting the desired dataset (.json file) -->
+
+    <div class="button-container">
+      <button id="WorldHappyReport" class="databtn btn btn-outline-danger">World Happiness Report</button>
+      <button id="WineReviews" class="databtn btn btn-outline-danger">Wine Reviews</button>
+      <button id="CreditCardFraud" class="databtn btn btn-outline-danger">Credit Card Fraud Data</button>
+      <button id="UFOSightings" class="databtn btn btn-outline-danger">UFO Sightings Data</button>
+    </div>
+
+    <!-- Chart Container -->
+
+    <div id="chartContainer" style="height: 500px; width: 95%;" class="align-items-center"></div>
+
+    <div class="text-center align-items-center align-content-center">
+
+      <!-- Change Y Axis Data by Demand-->
+
+      <div class="bt-graph"> X-Axis Value:
+        <select class="dropdown border-info" id="dd" style="margin: 0px 5px;">
+        <option value="" selected="selected">Select Axis</option>
+        <option value="Family" class="HappyCountry">Family</option>
+        <option value="Freedom" class="HappyCountry">Freedom</option>
+        <option value="Happiness Score" class="HappyCountry">Happiness Score</option>
+        <option value="Happiness Rank" class="HappyCountry">Happiness Rank</option>
+        <option value="Generosity" class="HappyCountry">Generosity</option>
+        <option value="Standard Error" class="HappyCountry">Standard Error</option>
+        <option value="Economy (GDP per Capita)" class="HappyCountry">Economy (GDP per Capita)</option>
+        <option value="points" class="Wine">Points</option>
+        <option value="price" class="Wine">Price</option>
+        <option value="Amount" class="Card">Amount</option>
+        <option value="V1" class="Card">V1</option>
+        <option value="V2" class="Card">V2</option>
+        <option value="V3" class="Card">V3</option>
+        <option value="V4" class="Card">V4</option>
+        <option value="V5" class="Card">V5</option>
+        <option value="V6" class="Card">V6</option>
+        <option value="V7" class="Card">V7</option>
+        <option value="duration (seconds)" class="UFO">duration (seconds)</option>
+        <option value="latitude" class="UFO">latitude</option>
+        <option value="longitude" class="UFO">longitude</option>
+      </select>
+      </div>
+
+      <!-- Print Chart Button  -->
+
+      <button class="bt-graph btn btn-outline-dark" id="printChart">Print Chart</button>
+
+      <!-- Export Chart Button  -->
+
+      <button class="bt-graph btn btn-outline-dark " id="exportChart">Export Chart</button>
+
+      <!-- Change chart Type on Demand -->
+
+      <div class="bt-graph"> Chart Type:
+        <select id="chartType" name="Chart Type" class="border-info" style="margin: 0px 5px;">
+        <option value="">Select Chart</option>
+        <option value="line">Line</option>
+        <option value="column">Column</option>
+        <option value="bar">Bar</option>
+        <option value="pie">Pie</option>
+        <option value="doughnut">Doughnut</option>
+      </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Selecting the desired dataset (.json file) -->
+
+  <!-- <div class="section">
+
+    <div class="button-container">
+      <button id="WorldHappyReport" class="databtn btn btn-outline-danger">World Happiness Report</button>
+      <button id="WineReviews" class="databtn btn btn-outline-danger">Wine Reviews</button>
+      <button id="CreditCardFraud" class="databtn btn btn-outline-danger">Credit Card Fraud Data</button>
+      <button id="UFOSightings" class="databtn btn btn-outline-danger">UFO Sightings Data</button>
+    </div>
+
+    <input type="text" id="search" placeholder="Search Country"></input>
+
+    <div id="dvCSV" class="NEwTable"> </div>
+  </div> -->
+
+
+  <div id="TableSection" class="section">
+
+    <div class="button-container">
+      <button id="WorldHappyReport" class="databtn btn btn-outline-danger">World Happiness Report</button>
+      <button id="WineReviews" class="databtn btn btn-outline-danger">Wine Reviews</button>
+      <button id="CreditCardFraud" class="databtn btn btn-outline-danger">Credit Card Fraud Data</button>
+      <button id="UFOSightings" class="databtn btn btn-outline-danger">UFO Sightings Data</button>
+    </div>
+
+    <button id="ViewAllData" class="btn btn-info">View All Dataset</button>
+
+    <input type="text" id="searcher" placeholder="Search Country"></input>
+
+    <div id="dvCSVF" class="NEwTable"> </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>The Ultimate Website Search for Datasets</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <br /><br />
+  <div class="container" style="width:900px;">
+    <h2 align="center">JSON Live Data Search using Ajax JQuery</h2>
+    <h3 align="center">Employee Data</h3>
+    <br /><br />
+    <div align="center">
+      <input type="text" name="search" id="search" placeholder="Search Countries" class="form-control" />
+    </div>
+    <ul class="list-group" id="result"></ul>
+    <br />
+  </div>
+</body>
+
+</html>
+
+<script>
+  $(document).ready(function() {
+    $.ajaxSetup({
+      cache: false
+    });
+    $('#search').keyup(function() {
+      $('#result').html('');
+      $('#state').val('');
+      var searchField = $('#search').val();
+      var expression = new RegExp(searchField, "i");
+      $.getJSON('data2.json', function(data) {
+        $.each(data, function(key, value) {
+          if (value.Country.search(expression) != -1 || value.Region.search(expression) != -1) {
+            $('#result').append('<li class="list-group-item link-class">' + value.Country + ' | <span class="text-muted">' + value.Region + '</span></li>');
+          }
+        });
+      });
+    });
+
+    $('#result').on('click', 'li', function() {
+      var click_text = $(this).text().split('|');
+      $('#search').val($.trim(click_text[0]));
+      $("#result").html('');
+    });
+
+    $('#search').keydown(function(event) {
+        if (event.keyCode == 13) {
+          $.getJSON('data2.json', function(data) {
+            $.each(data, function(key, value) {
+              if (value.Country.search(expression) != -1 || value.Region.search(expression) != -1) {
+                $('#result').append('<li class="list-group-item link-class">' + value.Country + ' | <span class="text-muted">' + value.Region + '</span></li>');
+              }
+            });
+          });
+        };
+    });
+  });
+</script> -->
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Webslesson Tutorial | Search HTML Table Data by using JQuery</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+
+  <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+  <style>
+    table,
+    tr,
+    td,
+    th {
+      border: 1px solid blue;
+      padding: 2px;
+      width: 100%;
+    }
+
+    table th {
+      background-color: #999999;
+    }
+
+    .current {
+      background-color: #ff3333;
+      color: white;
+      border-color: black;
+    }
+
+    .button-container {
+      margin: 20px 20px;
+    }
+
+    .section {
+      padding-top: 5%;
+      align-items: center;
+      text-align: center;
+      height: 1000px;
+      overflow-y: hidden;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    #search {
+      background-image: url('/css/searchicon.png');
+      background-position: 10px 10px;
+      background-repeat: no-repeat;
+      border-radius: 10px;
+      width: 40%;
+      font-size: 16px;
+      padding: 12px 20px 12px 40px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;
+    }
+
+    #dvCSV {
+      border-collapse: collapse;
+      width: 100%;
+      border: 1px solid #ddd;
+      font-size: 10px;
+      display: none;
+    }
+
+    .blur-effect {
+      width: 100%;
+      height: 40px;
+      background: blur(5px);
+      position: absolute;
+      bottom: 0px;
+    }
+
+    #dvCSV th,
+    #dvCSV td {
+      text-align: center;
+      padding: 12px;
+      height: auto;
+      width: auto;
+      border: 1px solid #ddd;
+    }
+
+    #dvCSV th {
+      background-color: #f1f1f1;
+    }
+
+    #dvCSV tr {
+      border-bottom: 1px solid #ddd;
+    }
+
+
+    #dvCSV tr.header,
+    #dvCSV tr:hover {
+      background-color: #f1f1f1;
+      transition: 0.9s;
+    }
+  </style>
+
+</head>
+
+<script>
+
+
+  $(document).ready(function() {
+
+
+    var selecteddata;
+    var counter;
+
+    //  Chart render On Command
+
+    $(".databtn").click(function() {
+      $(".databtn").removeClass("current");
+      $(this).addClass("current");
+      if ($(this).is('#' + 'WorldHappyReport')) {
+        counter = 1;
+        console.log(counter);
+        selecteddata = '2015worldhappy.json';
+        $('input:text').attr('placeholder','Search Country');
+      } else if ($(this).is('#' + 'CreditCardFraud')) {
+        selecteddata = 'CrediCard.json';
+        console.log("Fraud");
+        counter = 2;
+        console.log(counter);
+        $('input:text').attr('placeholder','Search Time (Seconds)');
+      } else if ($(this).is('#' + 'WineReviews')) {
+        selecteddata = 'winedatafinal.json';
+        console.log("Wine");
+        counter = 3;
+        console.log(counter);
+        $('input:text').attr('placeholder','Search Wine');
+      } else if ($(this).is('#' + 'UFOSightings')) {
+        selecteddata = 'ufosight.json';
+        console.log("UFO");
+        counter = 4;
+        console.log(counter);
+        $('input:text').attr('placeholder','Date / Time');
+
+      } else {}
+    });
+
+
+    // Populating Html Table with JSON data selected by the user
+
+    $(".databtn").click(function() {
+      $.getJSON(selecteddata, function(object) {
+        var obj = object;
+        var table = $("<table />");
+        table[0].border = "1";
+        var columns = Object.keys(obj[0]);
+        var columnCount = columns.length;
+        var row = $(table[0].insertRow(-1));
+        for (var i = 0; i < columnCount; i++) {
+          var headerCell = $("<th />");
+          headerCell.html([columns[i]]);
+          row.append(headerCell);
+        }
+
+        for (var i = 0; i < obj.length; i++) {
+          row = $(table[0].insertRow(-1));
+          for (var j = 0; j < columnCount; j++) {
+            var cell = $("<td />");
+            cell.html(obj[i][columns[j]]);
+            row.append(cell);
+          }
+        };
+
+        var dvTable = $("#dvCSV");
+        dvTable.html("");
+        dvTable.append(table);
+
+      });
+    });
+
+    // HTML table search Input Script
+
+    $("#search").keyup(function() {
+      var value = $(this).val();
+      var input, filter, table, tr, td, i;
+      filter = value.toUpperCase();
+      table = document.getElementsByTagName("table");
+      tr = document.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+      if ($('input:text').val().length === 0) {
+        $("#dvCSV").hide();
+      } else {
+        $("#dvCSV").show();
+      }
+    });
+
+  });
+</script>
+
+
+
+<!-- Selecting the desired dataset (.json file) -->
+
+<div class="section">
+
+  <div class="button-container">
+    <button id="WorldHappyReport" class="databtn btn btn-outline-danger">World Happiness Report</button>
+    <button id="WineReviews" class="databtn btn btn-outline-danger">Wine Reviews</button>
+    <button id="CreditCardFraud" class="databtn btn btn-outline-danger">Credit Card Fraud Data</button>
+    <button id="UFOSightings" class="databtn btn btn-outline-danger">UFO Sightings Data</button>
+  </div>
+
+  <input type="text" id="search" placeholder="Search Country"></input>
+
+  <div id="dvCSV" class="NEwTable"> </div>
+</div>
+
+<div class="blur-effect">
+</div>
+
+</html>

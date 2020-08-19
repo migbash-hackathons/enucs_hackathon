@@ -1,59 +1,15 @@
-<!doctype html>
-<html lang="en">
-<!--
-
-Page    : index / MobApp
-Version : 1.0
-Author  : Colorlib
-URI     : https://colorlib.com
-
- -->
+<!DOCTYPE HTML>
+<html>
 
 <head>
-  <title>Ultimate Data Handler</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Mobland - Mobile App Landing Page Template">
-  <meta name="keywords" content="HTML5, bootstrap, mobile, app, landing, ios, android, responsive">
-
-  <!-- Adding the SCRIPT Main -->
-  <script src="js/script.js"></script>
-
-  <!-- Font -->
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <!-- Themify Icons -->
-  <link rel="stylesheet" href="css/themify-icons.css">
-  <!-- Owl carousel -->
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <!-- Main css -->
-  <link href="css/style.css" rel="stylesheet">
-
+  <title>Webslesson Tutorial | Search HTML Table Data by using JQuery</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
   <style>
-    #result {
-      position: absolute;
-      width: 100%;
-      max-width: 870px;
-      cursor: pointer;
-      overflow-y: auto;
-      max-height: 400px;
-      box-sizing: border-box;
-      z-index: 1001;
-    }
-
-    .link-class:hover {
-      background-color: #f1f1f1;
-
-    }
-
     .current {
       background-color: black;
     }
@@ -226,801 +182,396 @@ URI     : https://colorlib.com
       background-color: #f1f1f1;
       transition: 0.9s;
     }
-
-    .service_big {
-      display: inline-block;
-      padding: 25px 25px;
-
-
-
-    }
-
-    .services_box {
-      display: inline-block;
-      padding: 80px 80px;
-      border-radius: 10px;
-      border: 5px 5px solid white;
-      background-color: white;
-      opacity: 0.4;
-      margin: 50px 50px;
-      transition: 1s;
-    }
-
-    .services_box:hover {
-      opacity: 0.7;
-      background-color: white;
-      border: 10px 10px solid black;
-    }
-
-    #myBtn {
-      display: none;
-      position: fixed;
-      bottom: 20px;
-      right: 30px;
-      z-index: 99;
-      font-size: 15px;
-      border: none;
-      outline: none;
-      background-color: red;
-      color: white;
-      cursor: pointer;
-      padding: 15px;
-      border-radius: 4px;
-    }
-
-    #myBtn:hover {
-      background-color: #555;
-    }
   </style>
 </head>
 
-<body data-spy="scroll" data-target="#navbar" data-offset="30">
-
-  <!-- Nav Menu -->
-
-  <div class="nav-menu fixed-top">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <nav class="navbar navbar-dark navbar-expand-lg">
-            <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="img-fluid" alt="logo" style="width:20%; height:20%"> Ultimate Data</a>
-            <div class="collapse navbar-collapse" id="navbar">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item"> <a class="nav-link active" href="#home">HOME <span class="sr-only">(current)</span></a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#GraphsSection">Graphs</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#TableSection">Data Search</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#High">Contact</a> </li>
-                <li class="nav-item"><a href="#features" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Get Started</a></li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </div>
+<script>
 
 
-  <header class="bg-gradient" id="home">
-    <div class="container mt-5">
-      <h1>The Ultimate Datasets Handler</h1>
-      <p class="tagline">Our Services</p>
-    </div>
-    <div class="service_big">
-      <a href="#TableSection">
-        <div class="services_box">
-          <h5> Serch Engine </h5>
-        </div>
-      </a>
-      <a href="#GraphsSection">
-        <div class="services_box">
-          <h5> Advanced Graphs </h5>
-        </div>
-      </a>
-    </div>
-  </header>
+  // Loading Placeholder (Showcase) Graphs
 
-  <div class="client-logos my-5 text-center">
-    <h3> Our Proud Sponsors: </h3>
-    <br/>
-    <div class="container text-center">
-      <img src="images/catgif.gif" alt="client logos" class="img-fluid" style="width: 10%; height: 35%;">
-      <img src="images/enucs.jpg" alt="client logos" class="img-fluid" style="width: 10%; height: 35%;">
-      <img src="images/master-race.gif" alt="client logos" class="img-fluid" style="width: 10%; height: 35%;">
-      <img src="images/Napier-Logo.jpg" alt="client logos" class="img-fluid" style="width: 10%; height: 35%;">
-      <img src="images/cssgif.gif" alt="client logos" class="img-fluid" style="width: 10%; height: 35%;">
-      <img src="images/programgif.gif" alt="client logos" class="img-fluid" style="width: 10%; height: 35%;">
-      <img src="images/catfunny.gif" alt="client logos" class="img-fluid" style="width: 10%; height: 35%;">
-    </div>
-  </div>
+  $(window).load(function() {})
 
-  <div class="section3 light-bg" id="features">
+  $(document).ready(function() {
 
+    var dataPoints1 = [];
 
-    <div class="container">
+    var chart = new CanvasJS.Chart("chartContainer", {
+      animationEnabled: true,
+      theme: "light2",
+      zoomEnabled: true,
+      panEnabled: true,
+      title: {
+        text: ""
+      },
+      axisY: {
+        titleFontSize: 24
+      },
+      axisX: {
+        title: "Countries",
+        titleFontSize: 24,
+        labelAngle: 45,
+      },
+      data: [{
+        type: "column",
+        yValueFormatString: "#.### Units",
+        // xValueFormatString: "string",
+        dataPoints: dataPoints1
+      }]
+    });
 
-      <div class="section-title">
-        <small>HIGHLIGHTS</small>
-        <h3>Features you love</h3>
-      </div>
+    var selecteddata;
+    var counter;
 
+    // Change Y axis on Graph to another one
 
-      <div class="row">
-        <div class="col-12 col-lg-4">
-          <div class="card features">
-            <div class="card-body">
-              <div class="media">
-                <span class="ti-face-smile gradient-fill ti-3x mr-3"></span>
-                <div class="media-body">
-                  <h4 class="card-title">Simple</h4>
-                  <p class="card-text">Even my Grandmother can use it</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-lg-4">
-          <div class="card features">
-            <div class="card-body">
-              <div class="media">
-                <span class="ti-settings gradient-fill ti-3x mr-3"></span>
-                <div class="media-body">
-                  <h4 class="card-title">Customize</h4>
-                  <p class="card-text">Make your Graph, Make your rules </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-lg-4">
-          <div class="card features">
-            <div class="card-body">
-              <div class="media">
-                <span class="ti-lock gradient-fill ti-3x mr-3"></span>
-                <div class="media-body">
-                  <h4 class="card-title">Secure</h4>
-                  <p class="card-text">Nobody will know or care what kind of crap you use these graphs for so we won't even bother to protect it.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    //  Chart render On Command
 
-    </div>
+    $(".databtn").click(function() {
+      $(".databtn").removeClass("current");
+      $(this).addClass("current");
+      if ($(this).is('#' + 'WorldHappyReport')) {
+        selecteddata = 'data/2015worldhappy.json';
+        $(".HappyCountry").show();
+        $(".Wine").hide();
+        $(".UFO").hide();
+        $(".Card").hide();
+        counter = 1;
+        console.log(counter);
+        $('input:text').attr('placeholder','Search Country');
+      } else if ($(this).is('#' + 'CreditCardFraud')) {
+        selecteddata = 'data/CrediCard.json';
+        $(".HappyCountry").hide();
+        $(".Card").show();
+        $(".UFO").hide();
+        $(".Wine").hide();
+        console.log("Fraud");
+        counter = 2;
+        console.log(counter);
+      $('input:text').attr('placeholder','Search Time (Seconds)');
+      } else if ($(this).is('#' + 'WineReviews')) {
+        selecteddata = 'data/winedatafinal.json';
+        $(".HappyCountry").hide();
+        $(".Card").hide();
+        $(".UFO").hide();
+        $(".Wine").show();
+        console.log("Wine");
+        counter = 3;
+        console.log(counter);
+        $('input:text').attr('placeholder','Search Wine');
+      } else if ($(this).is('#' + 'UFOSightings')) {
+        selecteddata = 'data/ufosight.json';
+        $(".HappyCountry").hide();
+        $(".Card").hide();
+        $(".Wine").hide();
+        $(".UFO").show();
+        console.log("UFO");
+        counter = 4;
+        console.log(counter);
+        $('input:text').attr('placeholder','Date / Time');
 
-
-
-  </div>
-  <!-- // end .section -->
-
-  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-
-  <script>
-    // Loading Placeholder (Showcase) Graphs
-
-    $(window).load(function() {})
-
-    window.onscroll = function() {
-      scrollFunction()
-    };
-
-    function scrollFunction() {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("myBtn").style.display = "block";
       } else {
-        document.getElementById("myBtn").style.display = "none";
+
       }
-    }
-
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
-
-    $(document).ready(function() {
-
-      var dataPoints1 = [];
-
-      var chart = new CanvasJS.Chart("chartContainer", {
-        animationEnabled: true,
-        theme: "light2",
-        zoomEnabled: true,
-        panEnabled: true,
-        title: {
-          text: ""
-        },
-        axisY: {
-          titleFontSize: 24
-        },
-        axisX: {
-          title: "Countries",
-          titleFontSize: 24,
-          labelAngle: 45,
-        },
-        data: [{
-          type: "column",
-          yValueFormatString: "#.### Units",
-          // xValueFormatString: "string",
-          dataPoints: dataPoints1
-        }]
-      });
-
-      var selecteddata;
-      var counter;
-
-      // Change Y axis on Graph to another one
-
-      //  Chart render On Command
-
-      $(".databtn").click(function() {
-        $(".databtn").removeClass("current");
-        $(this).addClass("current");
-        if ($(this).is('#' + 'WorldHappyReport')) {
-          selecteddata = 'data/2015worldhappy.json';
-          $(".HappyCountry").show();
-          $(".Wine").hide();
-          $(".UFO").hide();
-          $(".Card").hide();
-          counter = 1;
-          console.log(counter);
-          $('input:text').attr('placeholder', 'Search Country');
-        } else if ($(this).is('#' + 'CreditCardFraud')) {
-          selecteddata = 'data/CrediCard.json';
-          $(".HappyCountry").hide();
-          $(".Card").show();
-          $(".UFO").hide();
-          $(".Wine").hide();
-          console.log("Fraud");
-          counter = 2;
-          console.log(counter);
-          $('input:text').attr('placeholder', 'Search Time (Seconds)');
-        } else if ($(this).is('#' + 'WineReviews')) {
-          selecteddata = 'data/winedatafinal.json';
-          $(".HappyCountry").hide();
-          $(".Card").hide();
-          $(".UFO").hide();
-          $(".Wine").show();
-          console.log("Wine");
-          counter = 3;
-          console.log(counter);
-          $('input:text').attr('placeholder', 'Search Wine');
-        } else if ($(this).is('#' + 'UFOSightings')) {
-          selecteddata = 'data/ufosight.json';
-          $(".HappyCountry").hide();
-          $(".Card").hide();
-          $(".Wine").hide();
-          $(".UFO").show();
-          console.log("UFO");
-          counter = 4;
-          console.log(counter);
-          $('input:text').attr('placeholder', 'Date / Time');
-
-        } else {
-
-        }
-      });
+    });
 
 
-      // Rendering the Chart
+    // Rendering the Chart
 
-      $(".dropdown").change(function() {
+    $(".dropdown").change(function() {
+      chart.options.data[0].dataPoints = [];
+      var dropvalue = $(this).val()
+      console.log($(this).val());
+      if (counter = 1) {
         chart.options.data[0].dataPoints = [];
-        var dropvalue = $(this).val()
-        console.log($(this).val());
-        if (counter = 1) {
-          chart.options.data[0].dataPoints = [];
-          var e = document.getElementById("dd");
-          var selected = e.options[e.selectedIndex].value;
-          $.getJSON(selecteddata, function(data) {
-            for (var i = 0; i < data.length; i++) {
-              chart.options.data[0].dataPoints.push({
-                label: data[i].Country,
-                y: data[i][selected]
-              });
-            }
-            chart.render();
-          });
-
-        } else if (counter = 2) {
-          console.log("FAG");
-          chart.options.data[0].dataPoints = [];
-          var e = document.getElementById("dd");
-          var selected = e.options[e.selectedIndex].value;
-          $.getJSON(selecteddata, function(data) {
-            for (var i = 0; i < data.length; i++) {
-              chart.options.data[0].dataPoints.push({
-                label: data[i].Time,
-                y: data[i][selected]
-              });
-            }
-            chart.render();
-          });
-        } else if (counter = 3) {
-          console.log("FAG");
-          chart.options.data[0].dataPoints = [];
-          var e = document.getElementById("dd");
-          var selected = e.options[e.selectedIndex].value;
-          $.getJSON(selecteddata, function(data) {
-            for (var i = 0; i < data.length; i++) {
-              chart.options.data[0].dataPoints.push({
-                label: data[i].cunt,
-                y: data[i][selected]
-              });
-            }
-            chart.render();
-          });
-        } else if (counter = 4) {
-          console.log("FAG");
-          chart.options.data[0].dataPoints = [];
-          var e = document.getElementById("dd");
-          var selected = e.options[e.selectedIndex].value;
-          $.getJSON(selecteddata, function(data) {
-            for (var i = 0; i < data.length; i++) {
-              chart.options.data[0].dataPoints.push({
-                label: new Date(data[i].datetime),
-                y: data[i][selected]
-              });
-            }
-            chart.render();
-          });
-        } else {
-
-        }
-        counter = 5
-        console.log(counter)
-        var chartType = document.getElementById('chartType');
-        chartType.addEventListener("change", function() {
-          chart.options.data[0].type = chartType.options[chartType.selectedIndex].value;
+        var e = document.getElementById("dd");
+        var selected = e.options[e.selectedIndex].value;
+        $.getJSON(selecteddata, function(data) {
+          for (var i = 0; i < data.length; i++) {
+            chart.options.data[0].dataPoints.push({
+              label: data[i].Country,
+              y: data[i][selected]
+            });
+          }
           chart.render();
         });
-      });
 
-
-      // Change Chart Type to another one
-
-      // Print Chart By Command
-
-      document.getElementById("printChart").addEventListener("", function() {
-        chart.print();
-      });
-
-      // Export Chart as a file By Command
-
-      document.getElementById("exportChart").addEventListener("click", function() {
-        chart.exportChart({
-          format: "jpg"
+      } else if (counter = 2) {
+        console.log("FAG");
+        chart.options.data[0].dataPoints = [];
+        var e = document.getElementById("dd");
+        var selected = e.options[e.selectedIndex].value;
+        $.getJSON(selecteddata, function(data) {
+          for (var i = 0; i < data.length; i++) {
+            chart.options.data[0].dataPoints.push({
+              label: data[i].Time,
+              y: data[i][selected]
+            });
+          }
+          chart.render();
         });
-
-      });
-
-
-      $(".databtn").click(function() {
-        $.getJSON(selecteddata, function(object) {
-          var obj = object;
-          var table = $("<table />");
-          table[0].border = "1";
-          var columns = Object.keys(obj[0]);
-          var columnCount = columns.length;
-          var row = $(table[0].insertRow(-1));
-          for (var i = 0; i < columnCount; i++) {
-            var headerCell = $("<th />");
-            headerCell.html([columns[i]]);
-            row.append(headerCell);
+      } else if (counter = 3) {
+        console.log("FAG");
+        chart.options.data[0].dataPoints = [];
+        var e = document.getElementById("dd");
+        var selected = e.options[e.selectedIndex].value;
+        $.getJSON(selecteddata, function(data) {
+          for (var i = 0; i < data.length; i++) {
+            chart.options.data[0].dataPoints.push({
+              label: data[i].cunt,
+              y: data[i][selected]
+            });
           }
-
-          for (var i = 0; i < obj.length; i++) {
-            row = $(table[0].insertRow(-1));
-            for (var j = 0; j < columnCount; j++) {
-              var cell = $("<td />");
-              cell.html(obj[i][columns[j]]);
-              row.append(cell);
-            }
-          };
-
-          var dvTable = $("#dvCSV");
-          var dvTable2 = $("#dvCSVF");
-          dvTable2.html("");
-          dvTable.html("");
-          dvTable.append(table);
-          dvTable2.append(table);
-
+          chart.render();
         });
-      });
-
-      // HTML table search Input Script
-
-      $("#search").keyup(function() {
-        var value = $(this).val();
-        var input, filter, table, tr, td, i;
-        filter1 = value.toUpperCase();
-        table = document.getElementsByTagName("table");
-        tr = document.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-
-          td = tr[i].getElementsByTagName("td")[0];
-          if (td) {
-            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = "";
-            } else {
-              tr[i].style.display = "none";
-            }
+      } else if (counter = 4) {
+        console.log("FAG");
+        chart.options.data[0].dataPoints = [];
+        var e = document.getElementById("dd");
+        var selected = e.options[e.selectedIndex].value;
+        $.getJSON(selecteddata, function(data) {
+          for (var i = 0; i < data.length; i++) {
+            chart.options.data[0].dataPoints.push({
+              label: new Date(data[i].datetime),
+              y: data[i][selected]
+            });
           }
-        }
-        if ($('#search:text').val().length === 0) {
-          $("#dvCSV").hide();
-        } else {
-          $("#dvCSV").show();
-        }
+          chart.render();
+        });
+      } else {
+
+      }
+      counter = 5
+      console.log(counter)
+      var chartType = document.getElementById('chartType');
+      chartType.addEventListener("change", function() {
+        chart.options.data[0].type = chartType.options[chartType.selectedIndex].value;
+        chart.render();
       });
+    });
 
-      $("#searcher").keyup(function() {
-        var value = $(this).val();
-        var input, filter, table, tr, td, i;
-        filter = value.toUpperCase();
-        table = document.getElementsByTagName("table");
-        tr = document.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
 
-          td = tr[i].getElementsByTagName("td")[0];
-          if (td) {
-            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = "";
-            } else {
-              tr[i].style.display = "none";
-            }
-          }
+  // Change Chart Type to another one
+
+  // Print Chart By Command
+
+  document.getElementById("printChart").addEventListener("", function() {
+    chart.print();
+  });
+
+  // Export Chart as a file By Command
+
+  document.getElementById("exportChart").addEventListener("click", function() {
+    chart.exportChart({
+      format: "jpg"
+    });
+
+  });
+
+
+  $(".databtn").click(function() {
+    $.getJSON(selecteddata, function(object) {
+      var obj = object;
+      var table = $("<table />");
+      table[0].border = "1";
+      var columns = Object.keys(obj[0]);
+      var columnCount = columns.length;
+      var row = $(table[0].insertRow(-1));
+      for (var i = 0; i < columnCount; i++) {
+        var headerCell = $("<th />");
+        headerCell.html([columns[i]]);
+        row.append(headerCell);
+      }
+
+      for (var i = 0; i < obj.length; i++) {
+        row = $(table[0].insertRow(-1));
+        for (var j = 0; j < columnCount; j++) {
+          var cell = $("<td />");
+          cell.html(obj[i][columns[j]]);
+          row.append(cell);
         }
-      });
+      };
 
-
-      $("#ViewAllData").click(function() {
-        if ($(this).hasClass("current2")) {
-          $(this).removeClass("current2");
-        } else {
-          $(this).addClass("current2");
-        };
-        if ($("#TableSection").hasClass("section1")) {
-          $("#TableSection").removeClass("section1");
-        } else {
-          $("#TableSection").addClass("section1");
-        };
-      });
+      var dvTable = $("#dvCSV");
+      var dvTable2 = $("#dvCSVF");
+      dvTable2.html("");
+      dvTable.html("");
+      dvTable.append(table);
+      dvTable2.append(table);
 
     });
-  </script>
+  });
 
-  <div>
-    <div class="sectiongraph" id="GraphsSection">
-      <div id="Heading">
-        <h2 class=""> Graphs </h2>
-      </div>
+  // HTML table search Input Script
 
-      <!-- Selecting the desired dataset (.json file) -->
+  $("#search").keyup(function() {
+    var value = $(this).val();
+    var input, filter, table, tr, td, i;
+    filter1 = value.toUpperCase();
+    table = document.getElementsByTagName("table");
+    tr = document.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
 
-      <div class="button-container">
-        <button id="WorldHappyReport" class="databtn btn btn-outline-danger">World Happiness Report</button>
-        <button id="WineReviews" class="databtn btn btn-outline-danger">Wine Reviews</button>
-        <button id="CreditCardFraud" class="databtn btn btn-outline-danger">Credit Card Fraud Data</button>
-        <button id="UFOSightings" class="databtn btn btn-outline-danger">UFO Sightings Data</button>
-      </div>
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+    if ($('#search:text').val().length === 0) {
+      $("#dvCSV").hide();
+    } else {
+      $("#dvCSV").show();
+    }
+  });
 
-      <!-- Chart Container -->
+  $("#searcher").keyup(function() {
+    var value = $(this).val();
+    var input, filter, table, tr, td, i;
+    filter = value.toUpperCase();
+    table = document.getElementsByTagName("table");
+    tr = document.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
 
-      <div id="chartContainer" style="height: 500px; width: 95%;" class="align-items-center"></div>
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  });
 
-      <div class="text-center align-items-center align-content-center">
 
-        <!-- Change Y Axis Data by Demand-->
+  $("#ViewAllData").click(function() {
+    if ($(this).hasClass("current2")) {
+      $(this).removeClass("current2");
+    } else {
+      $(this).addClass("current2");
+    };
+    if ($("#TableSection").hasClass("section1")) {
+      $("#TableSection").removeClass("section1");
+    } else {
+      $("#TableSection").addClass("section1");
+    };
+  });
 
-        <div class="bt-graph"> X-Axis Value:
-          <select class="dropdown border-info" id="dd" style="margin: 0px 5px;">
-            <option value="" selected="selected">Select Axis</option>
-            <option value="Family" class="HappyCountry">Family</option>
-            <option value="Freedom" class="HappyCountry">Freedom</option>
-            <option value="Happiness Score" class="HappyCountry">Happiness Score</option>
-            <option value="Happiness Rank" class="HappyCountry">Happiness Rank</option>
-            <option value="Generosity" class="HappyCountry">Generosity</option>
-            <option value="Standard Error" class="HappyCountry">Standard Error</option>
-            <option value="Economy (GDP per Capita)" class="HappyCountry">Economy (GDP per Capita)</option>
-            <option value="points" class="Wine">Points</option>
-            <option value="price" class="Wine">Price</option>
-            <option value="Amount" class="Card">Amount</option>
-            <option value="V1" class="Card">V1</option>
-            <option value="V2" class="Card">V2</option>
-            <option value="V3" class="Card">V3</option>
-            <option value="V4" class="Card">V4</option>
-            <option value="V5" class="Card">V5</option>
-            <option value="V6" class="Card">V6</option>
-            <option value="V7" class="Card">V7</option>
-            <option value="duration (seconds)" class="UFO">duration (seconds)</option>
-            <option value="latitude" class="UFO">latitude</option>
-            <option value="longitude" class="UFO">longitude</option>
-          </select>
-        </div>
+  });
 
-        <!-- Print Chart Button  -->
+</script>
 
-        <button class="bt-graph btn btn-outline-dark" id="printChart">Print Chart</button>
 
-        <!-- Export Chart Button  -->
+<body>
 
-        <button class="bt-graph btn btn-outline-dark " id="exportChart">Export Chart</button>
+  <div class="sectiongraph">
 
-        <!-- Change chart Type on Demand -->
-
-        <div class="bt-graph"> Chart Type:
-          <select id="chartType" name="Chart Type" class="border-info" style="margin: 0px 5px;">
-            <option value="">Select Chart</option>
-            <option value="line">Line</option>
-            <option value="column">Column</option>
-            <option value="bar">Bar</option>
-            <option value="pie">Pie</option>
-            <option value="doughnut">Doughnut</option>
-          </select>
-        </div>
-      </div>
+    <div id="Heading">
+      <h2 class=""> Graphs </h2>
     </div>
 
     <!-- Selecting the desired dataset (.json file) -->
 
-    <!-- <div class="section">
-
-        <div class="button-container">
-          <button id="WorldHappyReport" class="databtn btn btn-outline-danger">World Happiness Report</button>
-          <button id="WineReviews" class="databtn btn btn-outline-danger">Wine Reviews</button>
-          <button id="CreditCardFraud" class="databtn btn btn-outline-danger">Credit Card Fraud Data</button>
-          <button id="UFOSightings" class="databtn btn btn-outline-danger">UFO Sightings Data</button>
-        </div>
-
-        <input type="text" id="search" placeholder="Search Country"></input>
-
-        <div id="dvCSV" class="NEwTable"> </div>
-      </div> -->
-
-
-    <div id="TableSection" class="section">
-      <div id="Heading">
-        <h2 class=""> Search Table Data </h2>
-      </div>
-      <div class="button-container">
-        <button id="WorldHappyReport" class="databtn btn btn-outline-danger">World Happiness Report</button>
-        <button id="WineReviews" class="databtn btn btn-outline-danger">Wine Reviews</button>
-        <button id="CreditCardFraud" class="databtn btn btn-outline-danger">Credit Card Fraud Data</button>
-        <button id="UFOSightings" class="databtn btn btn-outline-danger">UFO Sightings Data</button>
-      </div>
-      <button id="ViewAllData" class="btn btn-info">View All Dataset</button>
-      <input type="text" id="searcher" placeholder="Search Country"></input>
-      <div id="dvCSVF" class="NEwTable"> </div>
+    <div class="button-container">
+      <button id="WorldHappyReport" class="databtn btn btn-outline-danger">World Happiness Report</button>
+      <button id="WineReviews" class="databtn btn btn-outline-danger">Wine Reviews</button>
+      <button id="CreditCardFraud" class="databtn btn btn-outline-danger">Credit Card Fraud Data</button>
+      <button id="UFOSightings" class="databtn btn btn-outline-danger">UFO Sightings Data</button>
     </div>
 
-    <!-- // end .section -->
+    <!-- Chart Container -->
 
-    <div class="section3 light-bg" id="High">
-      <div class="container">
-        <div class="section-title">
-          <small>FEATURES</small>
-          <h3>Do more DataResearch with Us By your side</h3>
-        </div>
+    <div id="chartContainer" style="height: 500px; width: 95%;" class="align-items-center"></div>
 
-        <ul class="nav nav-tabs nav-justified" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#communication">Communication</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#schedule">Scheduling</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#messages">Graphs</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#livechat">Customers</a>
-          </li>
-        </ul>
-        <div class="tab-content">
-          <div class="tab-pane fade show active" id="communication">
-            <div class="d-flex flex-column flex-lg-row">
-              <div>
-                <h2>Don't Communicate</h2>
-                <p class="lead">We never communicate</p>
-                <p>Plase call the police for inquieries
-                </p>
-                <p> We do not take charge of your graphs.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane fade" id="schedule">
-            <div class="d-flex flex-column flex-lg-row">
-              <div>
-                <h2>Scheduling when you don't want </h2>
-                <p class="lead">Pretty shitty if you ask me no one is happy</p>
-                <p>Don't ask why
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane fade" id="messages">
-            <div class="d-flex flex-column flex-lg-row">
-              <div>
-                <h2>Realtime Messaging service to the police</h2>
-                <p class="lead"> We are not responsible for your data</p>
-                <p>I'll message you if anything
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane fade" id="livechat">
-            <div class="d-flex flex-column flex-lg-row">
-              <div>
-                <h2>Live chat with Girls</h2>
-                <p class="lead">Good Feature </p>
-                <p>They are always horny and hungry.
-                </p>
-                <p>P.S. Give them food m8
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="text-center align-items-center align-content-center">
 
+      <!-- Change Y Axis Data by Demand-->
 
-      </div>
-    </div>
-
-
-    <div class="section3">
-      <div class="container">
-        <div class="section-title">
-          <small>TESTIMONIALS</small>
-          <h3>What our Customers Says</h3>
-        </div>
-        <div class="testimonials owl-carousel">
-          <div class="testimonials-single">
-            <img src="images/catfunny.gif" alt="client" class="client-img">
-            <blockquote class="blockquote">Honestly, its pretty good i'd say. Absolutely Fantastic. Now I can analyze data while watching cat videos.</blockquote>
-            <h5 class="mt-4 mb-2">The Cat</h5>
-            <p class="text-primary">Cat Land</p>
-          </div>
-          <div class="testimonials-single">
-            <img src="images/enucs.jpg" alt="client" class="client-img">
-            <blockquote class="blockquote"> Using this was Absolutely great. I think who ever has built this should be the president. </blockquote>
-            <h5 class="mt-4 mb-2"> noname </h5>
-            <p class="text-primary">Code Lab HQ</p>
-          </div>
-          <div class="testimonials-single">
-            <img src="images/funnygif.jpg" alt="client" class="client-img">
-            <blockquote class="blockquote">This was quite shit experience. I will be taking to court this website</blockquote>
-            <h5 class="mt-4 mb-2">That one guy</h5>
-            <p class="text-primary">that always is not satisfied</p>
-          </div>
-          <div class="testimonials-single">
-            <img src="images/dancingkid.gif" alt="client" class="client-img">
-            <blockquote class="blockquote">What is this crap of a website, I should be playing World of Warcraft</blockquote>
-            <h5 class="mt-4 mb-2">The kid</h5>
-            <p class="text-primary">I think I'm old enoguh to scream at the mic when I play COD.</p>
-          </div>
-        </div>
-
+      <div class="bt-graph"> X-Axis Value:
+        <select class="dropdown border-info" id="dd" style="margin: 0px 5px;">
+        <option value="" selected="selected">Select Axis</option>
+        <option value="Family" class="HappyCountry">Family</option>
+        <option value="Freedom" class="HappyCountry">Freedom</option>
+        <option value="Happiness Score" class="HappyCountry">Happiness Score</option>
+        <option value="Happiness Rank" class="HappyCountry">Happiness Rank</option>
+        <option value="Generosity" class="HappyCountry">Generosity</option>
+        <option value="Standard Error" class="HappyCountry">Standard Error</option>
+        <option value="Economy (GDP per Capita)" class="HappyCountry">Economy (GDP per Capita)</option>
+        <option value="points" class="Wine">Points</option>
+        <option value="price" class="Wine">Price</option>
+        <option value="Amount" class="Card">Amount</option>
+        <option value="V1" class="Card">V1</option>
+        <option value="V2" class="Card">V2</option>
+        <option value="V3" class="Card">V3</option>
+        <option value="V4" class="Card">V4</option>
+        <option value="V5" class="Card">V5</option>
+        <option value="V6" class="Card">V6</option>
+        <option value="V7" class="Card">V7</option>
+        <option value="duration (seconds)" class="UFO">duration (seconds)</option>
+        <option value="latitude" class="UFO">latitude</option>
+        <option value="longitude" class="UFO">longitude</option>
+      </select>
       </div>
 
-    </div>
-    <!-- // end .section -->
+      <!-- Print Chart Button  -->
 
+      <button class="bt-graph btn btn-outline-dark" id="printChart">Print Chart</button>
 
-    <div class="section3" id="pricing">
-      <div class="container">
-        <div class="section-title">
-          <small>PRICING</small>
-          <h3>Upgrade to ProCat</h3>
-        </div>
+      <!-- Export Chart Button  -->
 
-        <div class="card-deck">
-          <div class="card pricing">
-            <div class="card-head">
-              <small class="text-primary">For Personal Use</small>
-              <span class="price">$500 + Follow us<sub>/m</sub></span>
-            </div>
-            <ul class="list-group list-group-flush">
-              <div class="list-group-item">1 project</div>
-              <div class="list-group-item">2 KB memory</div>
-              <div class="list-group-item">No Support</div>
-              <div class="list-group-item">No Idea</div>
-              <div class="list-group-item">Access to cat videos</div>
-            </ul>
-            <div class="card-body">
-              <a href="https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fmyaccount&state=%2Fwallet" class="btn btn-primary btn-lg btn-block">Choose this Plan</a>
-            </div>
-          </div>
-          <div class="card pricing popular">
-            <div class="card-head">
-              <small class="text-primary">Ultimate Cat Enterprise Graphs!</small>
-              <span class="price">$2000<sub>/m</sub></span>
-            </div>
-            <ul class="list-group list-group-flush">
-              <div class="list-group-item">No Project access</div>
-              <div class="list-group-item">2MB Storage</div>
-              <div class="list-group-item">Support+ Not</div>
-              <div class="list-group-item">No Collab </div>
-              <div class="list-group-item">1 Report /m</div>
-            </ul>
-            <div class="card-body">
-              <a href="https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fmyaccount&state=%2Fwallet" class="btn btn-primary btn-lg btn-block">Choose this Plan</a>
-            </div>
-          </div>
-          <div class="card pricing">
-            <div class="card-head">
-              <small class="text-primary">CatGraphs+</small>
-              <span class="price">Pay with cash only<sub>/m</sub></span>
-            </div>
-            <ul class="list-group list-group-flush">
-              <div class="list-group-item">Unlimited Cats</div>
-              <div class="list-group-item">No Storage</div>
-              <div class="list-group-item">No Contact</div>
-              <div class="list-group-item">Who are you?</div>
-              <div class="list-group-item">$50,000 Deposit</div>
-              <div class="list-group-item">Digital Cat For Free</div>
-            </ul>
-            <div class="card-body">
-              <a href="https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fmyaccount&state=%2Fwallet" class="btn btn-primary btn-lg btn-block">Choose this Plan</a>
-            </div>
-          </div>
-        </div>
-        <!-- // end .pricing -->
+      <button class="bt-graph btn btn-outline-dark " id="exportChart">Export Chart</button>
 
+      <!-- Change chart Type on Demand -->
 
+      <div class="bt-graph"> Chart Type:
+        <select id="chartType" name="Chart Type" class="border-info" style="margin: 0px 5px;">
+        <option value="">Select Chart</option>
+        <option value="line">Line</option>
+        <option value="column">Column</option>
+        <option value="bar">Bar</option>
+        <option value="pie">Pie</option>
+        <option value="doughnut">Doughnut</option>
+      </select>
       </div>
-
     </div>
-    <!-- // end .section -->
-
-
-    <div class="section3 pt-0">
-      <div class="container">
-        <div class="section-title">
-          <small>FAQ</small>
-          <h3>Frequently Asked Questions</h3>
-        </div>
-
-        <div class="row pt-4">
-          <div class="col-md-6">
-            <h4 class="mb-3">Can I try before I buy?</h4>
-            <p class="light-font mb-5">Ermm... no. </p>
-            <h4 class="mb-3">What payment methods do you accept?</h4>
-            <p class="light-font mb-5">CryptoKitties, but preferrably some Bitcoin with Ethereum and if needed cash (For this option we'll come to you)</p>
-
-          </div>
-          <div class="col-md-6">
-            <h4 class="mb-3">Can I change my plan later?</h4>
-            <p class="light-font mb-5">No. Once you subscribe you'll be with us forever and can't change.</p>
-            <h4 class="mb-3">Can I have a golden graph?</h4>
-            <p class="light-font mb-5">Sure! Only if you pay.</p>
-
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <!-- // end .section -->
-
   </div>
-  <!-- // end .section -->
-  <footer class="my-5 text-center">
-    <small>
-            <a href="#" class="m-2">PRESS</a>
-            <a href="#" class="m-2">TERMS</a>
-            <a href="#" class="m-2">PRIVACY</a>
-        </small>
-  </footer>
 
-  <!-- jQuery and Bootstrap -->
-  <script src="js/jquery-3.2.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <!-- Plugins JS -->
-  <script src="js/owl.carousel.min.js"></script>
-  <!-- Custom JS -->
-  <script src="js/script.js"></script>
+  <!-- Selecting the desired dataset (.json file) -->
+
+  <!-- <div class="section">
+
+    <div class="button-container">
+      <button id="WorldHappyReport" class="databtn btn btn-outline-danger">World Happiness Report</button>
+      <button id="WineReviews" class="databtn btn btn-outline-danger">Wine Reviews</button>
+      <button id="CreditCardFraud" class="databtn btn btn-outline-danger">Credit Card Fraud Data</button>
+      <button id="UFOSightings" class="databtn btn btn-outline-danger">UFO Sightings Data</button>
+    </div>
+
+    <input type="text" id="search" placeholder="Search Country"></input>
+
+    <div id="dvCSV" class="NEwTable"> </div>
+  </div> -->
+
+
+  <div id="TableSection" class="section">
+
+    <div class="button-container">
+      <button id="WorldHappyReport" class="databtn btn btn-outline-danger">World Happiness Report</button>
+      <button id="WineReviews" class="databtn btn btn-outline-danger">Wine Reviews</button>
+      <button id="CreditCardFraud" class="databtn btn btn-outline-danger">Credit Card Fraud Data</button>
+      <button id="UFOSightings" class="databtn btn btn-outline-danger">UFO Sightings Data</button>
+    </div>
+
+    <button id="ViewAllData" class="btn btn-info">View All Dataset</button>
+
+    <input type="text" id="searcher" placeholder="Search Country"></input>
+
+    <div id="dvCSVF" class="NEwTable"> </div>
+  </div>
 
 </body>
-
 </html>

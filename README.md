@@ -1,19 +1,16 @@
 This is a Hackathon Project for Data Analysis
 ---
 
-Description
----
-
 This project came as a result of a team effort to visualize data (in JSON and CSV format) to "pretty visualize" it on a website. The data was supplied by the ENUCS committee members, obtained from Kaggle.
 
-You can find a live version of the hackathon project [here](https://migbash-hackathons.github.io/enucs_hackathon/overall.html) or via the direct link below:
+You can find a live version of the hackathon project [**here**](https://migbash-hackathons.github.io/enucs_hackathon/index.html) or via the direct link below:
 
-https://migbash-hackathons.github.io/enucs_hackathon/overall.html
+**https://migbash-hackathons.github.io/enucs_hackathon/index.html**
 
-How it works
+How it works?
 ---
 
-Navigate to the live-version of the wesbite [here](https://migbash-hackathons.github.io/enucs_hackathon/overall.html).
+Navigate to the live-version of the wesbite [**here**](https://migbash-hackathons.github.io/enucs_hackathon/index.html).
 
 **Graphs Section**
 

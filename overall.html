@@ -231,7 +231,7 @@
       $(".databtn").removeClass("current");
       $(this).addClass("current");
       if ($(this).is('#' + 'WorldHappyReport')) {
-        selecteddata = '2015worldhappy.json';
+        selecteddata = 'data/2015worldhappy.json';
         $(".HappyCountry").show();
         $(".Wine").hide();
         $(".UFO").hide();
@@ -240,7 +240,7 @@
         console.log(counter);
         $('input:text').attr('placeholder','Search Country');
       } else if ($(this).is('#' + 'CreditCardFraud')) {
-        selecteddata = 'CrediCard.json';
+        selecteddata = 'data/CrediCard.json';
         $(".HappyCountry").hide();
         $(".Card").show();
         $(".UFO").hide();
@@ -250,7 +250,7 @@
         console.log(counter);
       $('input:text').attr('placeholder','Search Time (Seconds)');
       } else if ($(this).is('#' + 'WineReviews')) {
-        selecteddata = 'winedatafinal.json';
+        selecteddata = 'data/winedatafinal.json';
         $(".HappyCountry").hide();
         $(".Card").hide();
         $(".UFO").hide();
@@ -260,7 +260,7 @@
         console.log(counter);
         $('input:text').attr('placeholder','Search Wine');
       } else if ($(this).is('#' + 'UFOSightings')) {
-        selecteddata = 'ufosight.json';
+        selecteddata = 'data/ufosight.json';
         $(".HappyCountry").hide();
         $(".Card").hide();
         $(".Wine").hide();
